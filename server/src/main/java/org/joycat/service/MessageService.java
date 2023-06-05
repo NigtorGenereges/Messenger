@@ -23,8 +23,8 @@ public class MessageService {
     @Autowired
     private UserOnlineRepository userOnlineRepository;
 
-    @Value("client-port")
-    private String clientPort;
+//    @Value("client.port")
+    private final String clientPort = "9677";
 
 //    @Autowired
 //    private WebClient webClient;
@@ -42,7 +42,7 @@ public class MessageService {
 
         Observable.just(message).subscribe(msg -> {
             HttpEntity<Message> request = new HttpEntity<>(msg);
-            ResponseEntity<Message> messageResponseEntity = restTemplate.postForEntity(address + clientPort, request, Message.class);
+            ResponseEntity<Message> messageResponseEntity = restTemplate.postForEntity("http://" + address + ":" + clientPort + "/msg", request, Message.class);
             if (messageResponseEntity.getStatusCode() != HttpStatus.OK) {
                 recacheMessage(msg);
             }

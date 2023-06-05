@@ -21,7 +21,9 @@ public class UserOnlineService {
         return userOnlineRepository.findByLogin(login).orElse(null);
     }
 
-    public void turnOnline(UserOnline userOnline) {
+    public void turnOnline(final UserOnline userOnline) {
+        System.out.println("### USER ONLINE: " + userOnline.getLogin());
+        userOnline.setIp("localhost");
         userOnline.setTimeStart(LocalDateTime.now());
         userOnlineRepository.save(userOnline);
     }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.joycat.controller.MainViewController">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="400.0">
+         <children>
+            <Button fx:id="btnSend" layoutX="179.0" layoutY="161.0" mnemonicParsing="false" text="Send" />
+            <TextArea fx:id="taMessage" layoutX="26.0" layoutY="82.0" prefHeight="72.0" prefWidth="200.0" promptText="Your message" />
+            <TextField fx:id="tfRecipient" layoutX="126.0" layoutY="32.0" promptText="Recipient" />
+            <Button fx:id="btnOnline" onAction="#turnOnline" layoutX="297.0" layoutY="32.0" mnemonicParsing="false" text="Online (temp)" />
+            <TextField fx:id="tfLogin" layoutX="14.0" layoutY="32.0" prefHeight="25.0" prefWidth="89.0" promptText="My Login" />
+            <Label fx:id="lblMessage" layoutX="241.0" layoutY="110.0" text="There will be last message" />
+         </children></AnchorPane>
+   </children>
+</GridPane>
