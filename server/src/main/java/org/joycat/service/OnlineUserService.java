@@ -18,9 +18,12 @@ public class OnlineUserService {
         return onlineUserRepository.findByLogin(login).isPresent();
     }
 
+
     public OnlineUser findUserOnline(String login) {
         return onlineUserRepository.findByLogin(login).orElse(null);
     }
+
+}
 
 //    public  void saveOnlinUser(Str)
 //
