@@ -1,28 +1,36 @@
 package org.joycat.service;
 
+import io.reactivex.rxjava3.core.Observable;
 import org.joycat.entity.Message;
-import org.joycat.entity.OnlineUser;
-import org.joycat.entity.User;
+import org.joycat.entity.UserOnline;
 import org.joycat.repository.MessageRepository;
-import org.joycat.repository.OnlineUserRepository;
+import org.joycat.repository.UserOnlineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Service
 public class MessageService {
 
     @Autowired
     private MessageRepository messageRepository;
-
     @Autowired
-    private OnlineUserRepository onlineUserRepository;
+    private UserOnlineRepository userOnlineRepository;
+
+    @Value("client-port")
+    private String clientPort;
 
 //    @Autowired
 //    private WebClient webClient;
+
+    @Autowired
+    private RestTemplate restTemplate;
 
     public void saveMessage(Message message) {
         message.setSendTime(LocalDateTime.now());
@@ -32,21 +40,28 @@ public class MessageService {
 //TODO: 2) в редиректе сендж месседж
     public void sendMessage(Message message, String address) {
 
-//        webClient.post()
-//                .uri(address + ":4077")
-//                .retrieve()
-//                .bodyToMono(Message.class)
-//                .block();
+        Observable.just(message).subscribe(msg -> {
+            HttpEntity<Message> request = new HttpEntity<>(msg);
+            ResponseEntity<Message> messageResponseEntity = restTemplate.postForEntity(address + clientPort, request, Message.class);
+            if (messageResponseEntity.getStatusCode() != HttpStatus.OK) {
+                recacheMessage(msg);
+            }
+        });
 
 
     }
 
+    // If user connection is interrupted
+    public void recacheMessage(Message message) {
+        messageRepository.save(message);
+    }
+
     public void redirectMessage(Message message) {
 
-        OnlineUser onlineUser = onlineUserRepository.findByLogin(message.getRecipient()).orElse(null);
+        UserOnline userOnline = userOnlineRepository.findByLogin(message.getRecipient()).orElse(null);
 
         try {
-            sendMessage(message, onlineUser.getIp());
+            sendMessage(message, userOnline.getIp());
         } catch (NullPointerException e) {
             messageRepository.save(message);
         }
