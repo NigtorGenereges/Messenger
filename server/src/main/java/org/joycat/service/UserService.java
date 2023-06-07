@@ -1,10 +1,10 @@
 package org.joycat.service;
 
-import org.joycat.entity.Message;
 import org.joycat.entity.User;
+import org.joycat.entity.UserOnline;
+import org.joycat.entity.UserShort;
 import org.joycat.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.BadPaddingException;
@@ -15,22 +15,44 @@ import javax.crypto.spec.SecretKeySpec;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 
 @Service
 public class UserService {
 
+    private SecretKeySpec key = new SecretKeySpec("lovecatverymuch".getBytes(), "AES");
+
     @Autowired
-    private UserRepository personRepository;
+    private UserRepository userRepository;
+    @Autowired
+    private UserOnlineService userOnlineService;
 
-
-    public void saveUser(User user) {
-        personRepository.save(user);
+    public boolean addNewUser(User user) {
+        try {
+            userRepository.save(user);
+            return true;
+        } catch (Exception e) {
+            // TODO: Change general exception to specific and provide logging
+            return false;
+        }
     }
 
-    public void deleteUser(User user) { personRepository.delete(user);}
+    public void deleteUser(User user) { userRepository.delete(user);}
 
+    public boolean signInUser(UserShort userShort, String userIp) {
+        User user = userRepository.findByLogin(userShort.getLogin()).orElse(null);
+        if (user != null && checkPassword(userShort, user)) {
+            userOnlineService.turnOnline(new UserOnline(userShort.getLogin(), userIp));
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    public boolean checkPassword(UserShort userShort, User user) {
+        return decrypt(user.getPassword()).equals(userShort.getPassword());
+    }
 
     public User encryptUser(User user) {
 
@@ -41,35 +63,29 @@ public class UserService {
         }
         return user;
     }
-    private SecretKeySpec key = new SecretKeySpec("lovecatverymuch".getBytes(), "AES");
 
     public String encrypt(String text) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
-        Cipher cipher = Cipher.getInstance("AES");
+        try {
+            Cipher cipher = Cipher.getInstance("AES");
 
-        cipher.init(Cipher.ENCRYPT_MODE, key);
-        byte [] bytesTxt = cipher.doFinal(text.getBytes());
-        return Arrays.toString(bytesTxt);   // to UTF-8
+            cipher.init(Cipher.ENCRYPT_MODE, key);
+            byte [] bytesTxt = cipher.doFinal(text.getBytes());
+            return Arrays.toString(bytesTxt);   // to UTF-8
+        }  catch (NoSuchPaddingException | NoSuchAlgorithmException | InvalidKeyException | IllegalBlockSizeException | BadPaddingException e) {
+            return null;
+        }
 
     }
 
-    public String decrypt(String text) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
-        Cipher decriptCipher = Cipher.getInstance("AES");
-        decriptCipher.init(Cipher.DECRYPT_MODE, key);
-        byte [] decryptedBytes = decriptCipher.doFinal(text.getBytes());
-        return Arrays.toString(decryptedBytes);
+    public String decrypt(String text) {
+        try {
+            Cipher decriptCipher = Cipher.getInstance("AES");
+            decriptCipher.init(Cipher.DECRYPT_MODE, key);
+            byte [] decryptedBytes = decriptCipher.doFinal(text.getBytes());
+            return Arrays.toString(decryptedBytes);
+        }  catch (NoSuchPaddingException | NoSuchAlgorithmException | InvalidKeyException | IllegalBlockSizeException | BadPaddingException e) {
+            return null;
+        }
     }
-    public User giveUserLogin(String login){
-        Optional<User> optionalUser = personRepository.findByLogin(login);
-
-        return optionalUser.orElse(null);
-    }
-
-//    public List<Message> giveAllAfkMessage(String login){
-//        Optional<User> optionalUser = personRepository.findByLogin(
-//                login);
-//
-//        return optionalUser.orElse(null);
-//
-//    }
 
 }

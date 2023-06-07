@@ -11,9 +11,7 @@ import lombok.NoArgsConstructor;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.joycat.entity.Message;
 import org.joycat.service.MessageService;
-import org.joycat.service.OnlineService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,8 +26,6 @@ public class MainViewController {
 
     @Autowired
     private MessageService messageService;
-    @Autowired
-    private OnlineService onlineService;
 
     @FXML
     private TextField tfLogin;
@@ -52,10 +48,6 @@ public class MainViewController {
         message.setText(taMessage.getText());
         message.setSendTime(LocalDateTime.now());
         messageService.sendMessage(message);
-    }
-
-    public void turnOnline(ActionEvent event) {
-        onlineService.turnOnline();
     }
 
     @ResponseBody

@@ -10,5 +10,7 @@ public interface UserOnlineRepository extends JpaRepository<UserOnline, Integer>
 
     void deleteByLogin(String login);
 
+    boolean existsByLogin(String login);
+
 }
 

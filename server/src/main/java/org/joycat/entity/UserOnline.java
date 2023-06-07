@@ -15,6 +15,11 @@ public class UserOnline {
 
     private LocalDateTime timeStart;
 
+    public UserOnline(String login, String ip) {
+        this.login = login;
+        this.ip = ip;
+    }
+
     public String getLogin() {
         return login;
     }

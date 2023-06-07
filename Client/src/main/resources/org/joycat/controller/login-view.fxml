@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:controller="org.joycat.controller.LoginViewController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="tfLoginSignIn" layoutX="411.0" layoutY="108.0" promptText="Login" />
+      <TextField fx:id="tfLoginSignUp" layoutX="51.0" layoutY="193.0" promptText="Login" />
+      <Button fx:id="btnSignIn" onAction="#signIn" layoutX="460.0" layoutY="273.0" mnemonicParsing="false" text="Sign In" />
+      <Button fx:id="btnSignUp" onAction="#signUp" layoutX="97.0" layoutY="286.0" mnemonicParsing="false" text="Sign Up" />
+      <PasswordField fx:id="pfPasswordSignIn" layoutX="411.0" layoutY="175.0" promptText="Password" />
+      <PasswordField fx:id="pfPasswordSignUp" layoutX="51.0" layoutY="237.0" promptText="Password" />
+      <TextField fx:id="tfName" layoutX="51.0" layoutY="64.0" promptText="Name" />
+      <TextField fx:id="tfPhone" layoutX="51.0" layoutY="108.0" promptText="Phone (optional)" />
+      <TextField fx:id="tfEmail" layoutX="51.0" layoutY="149.0" promptText="E-mail" />
+      <Label fx:id="lblSignUp" layoutX="105.0" layoutY="33.0" text="Sign UP" />
+      <Label fx:id="lblSignIn" layoutX="467.0" layoutY="56.0" text="Sign In" />
+   </children>
+</AnchorPane>
