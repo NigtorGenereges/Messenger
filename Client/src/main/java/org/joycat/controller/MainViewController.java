@@ -34,7 +34,7 @@ public class MainViewController {
     @FXML
     private TextArea taMessage;
     @FXML
-    private Label lblMessage;
+    private Label lblLastMessage;
 
     @FXML
     private Button btnSend;
@@ -53,7 +53,12 @@ public class MainViewController {
     @ResponseBody
     @PostMapping("/msg")
     public void receiveMessage(@RequestBody Message message) {
-        Platform.runLater(() -> lblMessage.setText(message.getText()));
+
+        messageService.saveMessage(message);
+
+        Platform.runLater(() -> lblLastMessage.setText(message.getSender() + "\n" + message.getText()));
     }
+
+
 
 }

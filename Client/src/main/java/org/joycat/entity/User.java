@@ -1,14 +1,11 @@
 package org.joycat.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Pattern;
 
-@NoArgsConstructor
+@NoArgsConstructor  // Boilerplate
 @ToString
 // TODO: validation is not active (@Valid or @Validated?)
 public class User {

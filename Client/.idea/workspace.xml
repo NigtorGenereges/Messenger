@@ -20,29 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cf1a9fd-98b4-44dd-8ed4-de339c9839b1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/joycat/controller/LoginViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/joycat/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/joycat/entity/UserShort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/joycat/repository/MessageRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/joycat/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/joycat/controller/login-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/src/main/java/org/joycat/entity/UserShort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/joycat/config/ApplicationContextProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/joycat/FxMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/joycat/FxMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/joycat/controller/LoginViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/joycat/controller/LoginViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/joycat/controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/joycat/controller/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/joycat/controller/MessageController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/joycat/entity/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/joycat/entity/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/joycat/service/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/joycat/service/MessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/joycat/service/OnlineService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/joycat/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/joycat/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/joycat/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/joycat/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/joycat/controller/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/joycat/controller/main-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/joycat/controller/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/joycat/controller/main-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/main/java/org/joycat/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/org/joycat/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/main/java/org/joycat/controller/UserOnlineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/org/joycat/controller/UserOnlineController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/main/java/org/joycat/entity/UserOnline.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/org/joycat/entity/UserOnline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/main/java/org/joycat/repository/UserOnlineRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/org/joycat/repository/UserOnlineRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/main/java/org/joycat/service/UserOnlineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/org/joycat/service/UserOnlineService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/main/java/org/joycat/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/org/joycat/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/main/resources/database.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/resources/database.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/main/java/org/joycat/service/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/org/joycat/service/MessageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/target/classes/database.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/classes/database.mv.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +39,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -69,6 +56,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -122,41 +112,47 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="161" key="#Plugins" timestamp="1686002367496">
+    <state x="552" y="161" key="#Plugins" timestamp="1686239070277">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="161" key="#Plugins/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1686002367496" />
+    <state x="552" y="161" key="#Plugins/0.0.1920.1040@0.0.1920.1040" timestamp="1686239070277" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1686081121666">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1686081121666" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1686083312300">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1686238869283">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1686006286248" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1686083312300" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1686083312299">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1686238869283" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1686238869282">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1686006286248" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1686083312299" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1686083312298">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1686238869282" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1686238869282">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1686006286248" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1686083312298" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1686083312299">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1686238869282" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1686238869282">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1686006286248" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1686083312299" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1686238869282" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1686239060518">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1686239060518" />
     <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1686081291709">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="667" y="253" width="585" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1686081291709" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1686002353251">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1686239064604">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1686002353251" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1686239064604" />
   </component>
 </project>

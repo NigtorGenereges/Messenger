@@ -36,8 +36,7 @@ public class MessageService {
         message.setSendTime(LocalDateTime.now());
         messageRepository.save(message);
     }
-//TODO: 1) адрес стринга в олнайн юзере
-//TODO: 2) в редиректе сендж месседж
+
     public void sendMessage(Message message, String address) {
 
         Observable.just(message).subscribe(msg -> {
@@ -47,7 +46,6 @@ public class MessageService {
                 recacheMessage(msg);
             }
         });
-
 
     }
 

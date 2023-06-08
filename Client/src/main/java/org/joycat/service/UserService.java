@@ -1,5 +1,6 @@
 package org.joycat.service;
 
+import lombok.Setter;
 import org.joycat.controller.LoginViewController;
 import org.joycat.entity.User;
 import org.joycat.entity.UserOnline;
@@ -7,6 +8,7 @@ import org.joycat.entity.UserShort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.Disposable;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
@@ -14,12 +16,11 @@ import java.util.List;
 @Service
 public class UserService {
 
+    @Setter
     private String myLogin;
 
     @Autowired
     private WebClient webClient;
-//    @Autowired
-//    private LoginViewController loginViewController;
 
     public void createNewUser(User user) {
         System.out.println(user);
@@ -33,19 +34,15 @@ public class UserService {
                 .subscribe();
     }
 
-    public void validateUser(UserShort userShort) {
+    public Mono<Boolean> validateUser(UserShort userShort) {
         myLogin = userShort.getLogin();
-        webClient
+        return webClient
                 .post()
                 .uri("/user/login")
                 .body(Mono.just(userShort), User.class)
                 .retrieve()
                 .bodyToMono(Boolean.class)
-                .subscribe(userLoggedIn -> {
-                    if (userLoggedIn) {
-//                        loginViewController.switchToMain();
-                    }
-                });
+                ;
     }
 
     // TODO: proceed from checking list of online users (future feature)
